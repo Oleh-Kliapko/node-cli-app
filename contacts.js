@@ -1,21 +1,30 @@
-const path = require("path");
+const fs = require("fs/promises");
+const contactsPath = require("./db");
 
-const contactsPath = path.resolve("./db/contacts.json");
-console.log("🚀 contactsPath:", contactsPath);
+// get and return list of all contacts from database
+const listContacts = async () => {
+  const contacts = await fs.readFile(contactsPath);
+  return contacts;
+};
 
-// TODO: задокументувати кожну функцію
-function listContacts() {
+// find and return defined contact (by ID of this contact)
+const getContactById = async (contactId) => {
   // ...твій код
-}
+};
 
-function getContactById(contactId) {
+// delete contact (by ID of this contact) and return it
+const removeContact = async (contactId) => {
   // ...твій код
-}
+};
 
-function removeContact(contactId) {
+// add new contact in database and return it after adding
+const addContact = async (name, email, phone) => {
   // ...твій код
-}
+};
 
-function addContact(name, email, phone) {
-  // ...твій код
-}
+module.exports = {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+};
